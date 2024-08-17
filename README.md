@@ -1,1 +1,0 @@
-This is a study project for software construction.
