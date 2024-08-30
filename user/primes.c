@@ -2,7 +2,7 @@
 #include "kernel/stat.h"
 #include "user/user.h"
 
-
+__attribute__ ((noreturn))
 void
 getPrime(int p[2])
 {
