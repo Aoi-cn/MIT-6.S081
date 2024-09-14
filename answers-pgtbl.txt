@@ -1,0 +1,16 @@
+╭─aoia@AiknrZhou ~/xv6-labs-2021  ‹pgtbl*› 
+╰─➤  ./grade-lab-pgtbl                                                                                                                                                                                                                                                                                                        1 ↵
+make: 'kernel/kernel' is up to date.
+== Test pgtbltest == (1.2s) 
+== Test   pgtbltest: ugetpid == 
+  pgtbltest: ugetpid: OK 
+== Test   pgtbltest: pgaccess == 
+  pgtbltest: pgaccess: OK 
+== Test pte printout == pte printout: OK (0.9s) 
+== Test answers-pgtbl.txt == answers-pgtbl.txt: OK 
+== Test usertests == (85.4s) 
+== Test   usertests: all tests == 
+  usertests: all tests: OK 
+== Test time == 
+time: OK 
+Score: 46/46

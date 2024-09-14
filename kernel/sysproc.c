@@ -81,6 +81,28 @@ int
 sys_pgaccess(void)
 {
   // lab pgtbl: your code here.
+  uint64 va;
+  int page_num;
+  uint64 useraddress;
+
+  if(argaddr(0, &va) < 0 || argint(1, &page_num) < 0 || argaddr(2, &useraddress) < 0)
+    return -1;
+  // pagetables里有page_num个页表，对每个页表，检查里面所有的pte，如果有发现有PTE_A，就说明有访问过?
+
+  struct proc* p = myproc();
+  uint64 tmp_va = va;
+  uint64 result = 0;
+  for(int i = 0; i < page_num; i++)
+  {
+    tmp_va = va + i * PGSIZE;
+    pte_t *pte = walk(p->pagetable, tmp_va, 0);
+    if(pte && (*pte & PTE_A))
+    {
+      result |= (1 << i);
+      *pte &= (~PTE_A);
+    }
+  }
+  copyout(p->pagetable, useraddress, (char*)&result, sizeof(uint64));
   return 0;
 }
 #endif

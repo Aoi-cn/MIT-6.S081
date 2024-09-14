@@ -48,6 +48,17 @@ ugetpid_test()
   printf("ugetpid_test: OK\n");
 }
 
+
+void
+printf_bit(unsigned int bit)
+{
+  for(int i = 0; i < 32; i++)
+  {
+    printf("%d ", bit & (1 << i));
+  }
+  return;
+}
+
 void
 pgaccess_test()
 {
@@ -64,6 +75,7 @@ pgaccess_test()
   if (pgaccess(buf, 32, &abits) < 0)
     err("pgaccess failed");
   printf("abits is %d\n", abits);
+  // printf_bit(abits);
   if (abits != ((1 << 1) | (1 << 2) | (1 << 30)))
     err("incorrect access bits set");
   free(buf);
